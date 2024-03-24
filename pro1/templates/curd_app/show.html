@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>show page</title>
+{% endblock %}
+{% block content %}
+<body>
+        <table class="table table-success table-striped ">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Account No</th>
+                <th>Branch</th>
+                <th>Amount</th>
+                <th colspan="2" class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for bank in banks %}
+            <tr>
+                <td>{{bank.customer_name}}</td>
+                <td>{{bank.customer_last_name}}</td>
+                <td>{{bank.customer_account_no}}</td>
+                <td>{{bank.bank_branch}}</td>
+                <td>{{bank.amount}}</td>
+                <td>
+                        <a href="{% url 'update_url' bank.id %}">
+
+                            <button class="btn btn-warning col-12"><i class="bi bi-pencil-square"></i>&nbsp Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'cancel_url' bank.id %}">
+
+                            <button class="btn btn-danger col-12"><i class="bi bi-trash3-fill"></i>&nbsp Delete</button>
+                        </a>
+                    </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+</body>
+{% endblock%}

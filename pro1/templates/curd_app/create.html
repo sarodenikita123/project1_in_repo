@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>create page</title>
+{% endblock %}
+{% block content %}
+
+<body>
+        <form method="post" class="border border-5 m-auto mt-5 p-3 col-4">
+            <h2 class="text-center text-primary">Bank Form</h2>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-primary">
+            <input type="button" value="cancel" class="btn btn-warning float-end">
+        </form>
+</body>
+{% endblock %}
